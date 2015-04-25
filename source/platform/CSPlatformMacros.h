@@ -19,13 +19,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+#ifndef __CS_PLATFORM_MACROS_H__
+#define __CS_PLATFORM_MACROS_H__
+#include "CSPlatformDefine.h"
 
-#ifndef __SURFACE3D__H__
-#define __SURFACE3D__H__
-// 0x00 HI ME LO
-// 00   00 00 01
-#define COCOSURFACE3D_VERSION 0x00000001
-#include <irrlicht.h>
-#include "platform/CSPlatformMacros.h"
+#ifdef __cplusplus
+    #define NS_CS_BEGIN                     namespace surface3d {
+    #define NS_CS_END                       }
+    #define USING_NS_CS                     using namespace surface3d
+	#define NS_CS                           ::surface3d
+#else
+    #define NS_CC_BEGIN 
+    #define NS_CC_END 
+    #define USING_NS_CC 
+    #define NS_CC
+#endif 
 
-#endif
+#endif // __CC_PLATFORM_MACROS_H__

@@ -20,12 +20,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __SURFACE3D__H__
-#define __SURFACE3D__H__
-// 0x00 HI ME LO
-// 00   00 00 01
-#define COCOSURFACE3D_VERSION 0x00000001
-#include <irrlicht.h>
+
+#ifndef	__CSNODE_H__
+#define __CSNODE_H__
+
 #include "platform/CSPlatformMacros.h"
+
+NS_CS_BEGIN
+
+
+
+
+NS_CS_END
 
 #endif

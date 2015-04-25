@@ -19,13 +19,44 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+#ifndef __CSPLATFORMDEFINE_H__
+#define __CSPLATFORMDEFINE_H__
 
-#ifndef __SURFACE3D__H__
-#define __SURFACE3D__H__
-// 0x00 HI ME LO
-// 00   00 00 01
-#define COCOSURFACE3D_VERSION 0x00000001
-#include <irrlicht.h>
-#include "platform/CSPlatformMacros.h"
+#include "platform/CSPlatformConfig.h"
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
 
+#ifdef __MINGW32__
+#include <string.h>
 #endif
+
+#if defined(CC_STATIC)
+    #define CC_DLL
+#else
+#if defined(_USRDLL)
+    #define CC_DLL     __declspec(dllexport)
+#else         /* use a DLL library */
+    #define CC_DLL     __declspec(dllimport)
+#endif
+#endif
+
+#include <assert.h>
+
+#if CC_DISABLE_ASSERT > 0
+#define CC_ASSERT(cond)
+#else
+#define CC_ASSERT(cond)    assert(cond)
+#endif
+#define CC_UNUSED_PARAM(unusedparam) (void)unusedparam
+
+/* Define NULL pointer value */
+#ifndef NULL
+#ifdef __cplusplus
+#define NULL    0
+#else
+#define NULL    ((void *)0)
+#endif
+#endif
+
+#endif //s CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+
+#endif /* __CCPLATFORMDEFINE_H__*/

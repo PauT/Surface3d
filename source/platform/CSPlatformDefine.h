@@ -20,12 +20,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __SURFACE3D__H__
-#define __SURFACE3D__H__
-// 0x00 HI ME LO
-// 00   00 00 01
-#define COCOSURFACE3D_VERSION 0x00000001
-#include <irrlicht.h>
-#include "platform/CSPlatformMacros.h"
+#ifndef __PLATFORM_CCPLATFORMDEFINE_H__
+#define __PLATFORM_CCPLATFORMDEFINE_H__
 
+#include "platform/CSPlatformConfig.h"
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_MAC
+#include "platform/mac/CCPlatformDefine-mac.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#include "platform/ios/CCPlatformDefine-ios.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#include "platform/android/CCPlatformDefine-android.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+#include "platform/win32/CSPlatformDefine-win32.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_WP8 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
+#include "platform/winrt/CCPlatformDefine-winrt.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
+#include "platform/linux/CCPlatformDefine-linux.h"
 #endif
+
+#endif /* __PLATFORM_CCPLATFORMDEFINE_H__*/
