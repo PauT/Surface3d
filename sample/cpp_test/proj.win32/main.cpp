@@ -57,7 +57,7 @@ int main()
 	dimensions, etc.
 	*/
 	IrrlichtDevice *device =
-		createDevice( video::EDT_SOFTWARE, dimension2d<u32>(640, 480), 16,
+		createDevice( video::EDT_SOFTWARE, dimension2d<u32>(1024, 768), 16,
 			false, false, false, 0);
 
 	if (!device)
@@ -100,7 +100,7 @@ int main()
 	other supported file format. By the way, that cool Quake 2 model
 	called sydney was modelled by Brian Collins.
 	*/
-	IAnimatedMesh* mesh = smgr->getMesh("media/sydney.md2");
+	IAnimatedMesh* mesh = smgr->getMesh("data_3d/fighter.3DS");
 	if (!mesh)
 	{
 		device->drop();
@@ -120,7 +120,7 @@ int main()
 	{
 		node->setMaterialFlag(EMF_LIGHTING, false);
 		node->setMD2Animation(scene::EMAT_STAND);
-		node->setMaterialTexture( 0, driver->getTexture("media/sydney.bmp") );
+		node->setMaterialTexture( 0, driver->getTexture("data_3d/ant_01.tga") );
 	}
 
 	/*
@@ -128,7 +128,7 @@ int main()
 	(0, 30, -40). The camera looks from there to (0,5,0), which is
 	approximately the place where our md2 model is.
 	*/
-	smgr->addCameraSceneNode(0, vector3df(0,30,-40), vector3df(0,5,0));
+	smgr->addCameraSceneNode(0, vector3df(0,30,-1000), vector3df(0,5,0));
 
 	/*
 	Ok, now we have set up the scene, lets draw everything: We run the
