@@ -5,8 +5,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\surface3d.cpp" />
+    <ClCompile Include="..\base\SScene.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\surface3d.h" />
+    <ClInclude Include="..\base\SScene.h">
+      <Filter>base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="base">
+      <UniqueIdentifier>{c1cf6af5-b963-4854-b6a3-f71bfdce9c0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

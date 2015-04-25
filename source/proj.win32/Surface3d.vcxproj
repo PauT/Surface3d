@@ -81,9 +81,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\base\SScene.cpp" />
     <ClCompile Include="..\surface3d.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\base\SScene.h" />
     <ClInclude Include="..\surface3d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
