@@ -5,19 +5,43 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\surface3d.cpp" />
-    <ClCompile Include="..\base\SScene.cpp">
+    <ClCompile Include="..\base\CSNode.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base\CSScene.cpp">
       <Filter>base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\surface3d.h" />
-    <ClInclude Include="..\base\SScene.h">
+    <ClInclude Include="..\base\CSNode.h">
       <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\CSScene.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\CSPlatformConfig.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\CSPlatformDefine.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\CSPlatformMacros.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\win32\CSPlatformDefine-win32.h">
+      <Filter>platform\win32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="base">
       <UniqueIdentifier>{c1cf6af5-b963-4854-b6a3-f71bfdce9c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{3f0e167f-ed59-4e0b-84c0-9cbc9b8b72cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\win32">
+      <UniqueIdentifier>{fc3e19e9-c914-43b2-99eb-44740e76e192}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

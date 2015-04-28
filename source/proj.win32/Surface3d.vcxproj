@@ -51,9 +51,9 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SURFACE3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SURFACE3D_EXPORTS;_USR_CS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -81,11 +81,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\base\SScene.cpp" />
+    <ClCompile Include="..\base\CSNode.cpp" />
+    <ClCompile Include="..\base\CSScene.cpp" />
     <ClCompile Include="..\surface3d.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\base\SScene.h" />
+    <ClInclude Include="..\base\CSNode.h" />
+    <ClInclude Include="..\base\CSScene.h" />
+    <ClInclude Include="..\platform\CSPlatformConfig.h" />
+    <ClInclude Include="..\platform\CSPlatformDefine.h" />
+    <ClInclude Include="..\platform\CSPlatformMacros.h" />
+    <ClInclude Include="..\platform\win32\CSPlatformDefine-win32.h" />
     <ClInclude Include="..\surface3d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

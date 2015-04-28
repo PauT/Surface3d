@@ -25,7 +25,8 @@ THE SOFTWARE.
 // 0x00 HI ME LO
 // 00   00 00 01
 #define COCOSURFACE3D_VERSION 0x00000001
-#include <irrlicht.h>
 #include "platform/CSPlatformMacros.h"
+
+#include "base/CSScene.h"
 
 #endif

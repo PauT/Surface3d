@@ -30,23 +30,23 @@ THE SOFTWARE.
 #endif
 
 #if defined(CC_STATIC)
-    #define CC_DLL
+    #define CS_DLL
 #else
 #if defined(_USRDLL)
-    #define CC_DLL     __declspec(dllexport)
+    #define CS_DLL     __declspec(dllexport)
 #else         /* use a DLL library */
-    #define CC_DLL     __declspec(dllimport)
+    #define CS_DLL     __declspec(dllimport)
 #endif
 #endif
 
 #include <assert.h>
 
 #if CC_DISABLE_ASSERT > 0
-#define CC_ASSERT(cond)
+#define CS_ASSERT(cond)
 #else
-#define CC_ASSERT(cond)    assert(cond)
+#define CS_ASSERT(cond)    assert(cond)
 #endif
-#define CC_UNUSED_PARAM(unusedparam) (void)unusedparam
+#define CS_UNUSED_PARAM(unusedparam) (void)unusedparam
 
 /* Define NULL pointer value */
 #ifndef NULL

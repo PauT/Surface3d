@@ -35,4 +35,12 @@ THE SOFTWARE.
     #define NS_CC
 #endif 
 
+
+#define USING_NS_IRR	using namespace irr;	\
+						using namespace core;	\
+						using namespace scene;	\
+						using namespace video;	\
+						using namespace io;		\
+						using namespace gui;
+
 #endif // __CC_PLATFORM_MACROS_H__
