@@ -19,68 +19,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-
-
-/**
-	This class is base class for the new project.
-	Default Set is:
-
-
-*/
-
-#ifndef	__SDIRECTOR_H__
-#define __SDIRECTOR_H__
-
-#include "platform/CSPlatformMacros.h"
-#include <irrlicht.h>
-USING_NS_IRR;
-
-
+#include "CSScene.h"
 NS_CS_BEGIN
-class CS_DLL Director
+
+
+CSScene::CSScene()
 {
-public:
-	Director(void);
-	~Director();
 
-	/** returns a shared instance of the director */
-	static Director* getInstance();
-
-
-private:
-
-};
-
-
-/** 
- @brief DisplayLinkDirector is a Director that synchronizes timers with the refresh rate of the display.
- 
- Features and Limitations:
-  - Scheduled timers & drawing are synchronizes with the refresh rate of the display
-  - Only supports animation intervals of 1/60 1/30 & 1/15
- 
- @since v0.8.2
- */
-class DisplayLinkDirector : public Director
+}
+CSScene::~CSScene()
 {
-public:
-    DisplayLinkDirector() 
-        : _invalid(false)
-    {}
-    virtual ~DisplayLinkDirector(){}
 
-    //
-    // Overrides
-    //
-    //virtual void mainLoop() override;
-    //virtual void setAnimationInterval(double value) override;
-    //virtual void startAnimation() override;
-    //virtual void stopAnimation() override;
+}
 
-protected:
-    bool _invalid;
-};
+
 
 NS_CS_END
-
-#endif

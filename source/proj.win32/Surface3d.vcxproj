@@ -81,11 +81,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\base\CSDirector.cpp" />
     <ClCompile Include="..\base\CSNode.cpp" />
     <ClCompile Include="..\base\CSScene.cpp" />
     <ClCompile Include="..\surface3d.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\base\CSDirector.h" />
     <ClInclude Include="..\base\CSNode.h" />
     <ClInclude Include="..\base\CSScene.h" />
     <ClInclude Include="..\platform\CSPlatformConfig.h" />

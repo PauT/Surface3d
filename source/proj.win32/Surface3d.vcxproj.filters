@@ -11,6 +11,9 @@
     <ClCompile Include="..\base\CSScene.cpp">
       <Filter>base</Filter>
     </ClCompile>
+    <ClCompile Include="..\base\CSDirector.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\surface3d.h" />
@@ -31,6 +34,9 @@
     </ClInclude>
     <ClInclude Include="..\platform\win32\CSPlatformDefine-win32.h">
       <Filter>platform\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\CSDirector.h">
+      <Filter>base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

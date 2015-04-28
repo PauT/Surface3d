@@ -22,12 +22,29 @@ THE SOFTWARE.
 #include "CSDirector.h"
 NS_CS_BEGIN
 
+// singleton stuff
+static DisplayLinkDirector *s_SharedDirector = nullptr;
 
 Director::Director()
 {
-
 }
+
 Director::~Director()
 {
 
 }
+
+/** returns a shared instance of the director */
+Director* Director::getInstance()
+{
+	if (!s_SharedDirector)
+	{
+		s_SharedDirector = new (std::nothrow) DisplayLinkDirector();
+		//CCASSERT(s_SharedDirector, "FATAL: Not enough memory");
+		//s_SharedDirector->init();
+	}
+
+	return s_SharedDirector;
+}
+
+NS_CS_END
