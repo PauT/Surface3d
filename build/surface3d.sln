@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp_test", "..\sample\cpp_t
 		{72BC1C6B-27B3-4CF6-83CA-EC5F9541FE99} = {72BC1C6B-27B3-4CF6-83CA-EC5F9541FE99}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GUIEditor", "..\tools\GUIEditor\GUI Editor_vc11.vcxproj", "{853A396E-C031-4C26-A716-5B4E176BE11D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -103,6 +105,34 @@ Global
 		{5141CD1D-CD02-4010-A5AA-B58DC985116C}.Static lib - Release|Win32.ActiveCfg = Release|Win32
 		{5141CD1D-CD02-4010-A5AA-B58DC985116C}.Static lib - Release|Win32.Build.0 = Release|Win32
 		{5141CD1D-CD02-4010-A5AA-B58DC985116C}.Static lib - Release|x64.ActiveCfg = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Debug|Win32.Build.0 = Debug|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Debug|x64.ActiveCfg = Debug|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Debug|x64.Build.0 = Debug|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release - Fast FPU|Win32.ActiveCfg = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release - Fast FPU|Win32.Build.0 = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release - Fast FPU|x64.ActiveCfg = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release - Fast FPU|x64.Build.0 = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release|Win32.ActiveCfg = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release|Win32.Build.0 = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release|x64.ActiveCfg = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Release|x64.Build.0 = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.SDL-Debug|Win32.ActiveCfg = Debug|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.SDL-Debug|Win32.Build.0 = Debug|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.SDL-Debug|x64.ActiveCfg = Debug|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.SDL-Debug|x64.Build.0 = Debug|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Debug|Win32.ActiveCfg = Debug|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Debug|Win32.Build.0 = Debug|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Debug|x64.ActiveCfg = Debug|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Debug|x64.Build.0 = Debug|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release - Fast FPU|Win32.ActiveCfg = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release - Fast FPU|Win32.Build.0 = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release - Fast FPU|x64.ActiveCfg = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release - Fast FPU|x64.Build.0 = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release|Win32.ActiveCfg = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release|Win32.Build.0 = Release|Win32
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release|x64.ActiveCfg = Release|x64
+		{853A396E-C031-4C26-A716-5B4E176BE11D}.Static lib - Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

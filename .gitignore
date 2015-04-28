@@ -3,6 +3,13 @@
 *.lo
 *.o
 *.obj
+*.ilk
+*.pdb
+*.exp
+*.tlog
+[Bb]in
+[Dd]ebug/
+[Dd]ebug.win32/
 
 # Precompiled Headers
 *.gch
@@ -26,3 +33,8 @@
 *.exe
 *.out
 *.app
+
+# vs project
+*.opensdf
+*.sdf
+*.suo
