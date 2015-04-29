@@ -59,15 +59,15 @@ int Application::run()
 {
     /*PVRFrameEnableControlWindow(false);
 
-    // Main message loop:
-    LARGE_INTEGER nFreq;
-    LARGE_INTEGER nLast;
-    LARGE_INTEGER nNow;
-
-    QueryPerformanceFrequency(&nFreq);
-    QueryPerformanceCounter(&nLast);
-
     initGLContextAttrs();*/
+
+	// Main message loop:
+	LARGE_INTEGER nFreq;
+	LARGE_INTEGER nLast;
+	LARGE_INTEGER nNow;
+
+	QueryPerformanceFrequency(&nFreq);
+	QueryPerformanceCounter(&nLast);
 
     // Initialize instance and cocos2d.
     if (!applicationDidFinishLaunching())
@@ -84,10 +84,16 @@ int Application::run()
 // 
 	while(director->getIrrDevice()->run())
 	{
-		director->getIrrDevice()->getVideoDriver()->beginScene(true, true, SColor(255,100,101,140));
-		director->getIrrSceneManager()->drawAll();
-		director->getIrrGUIEnvironment()->drawAll();
-		director->getIrrDevice()->getVideoDriver()->endScene();
+		QueryPerformanceCounter(&nNow);
+		if (nNow.QuadPart - nLast.QuadPart > _animationInterval.QuadPart)
+		{
+			nLast.QuadPart = nNow.QuadPart;
+			director->mainLoop();
+
+		} else 
+		{
+			Sleep(0);
+		}
 	}
 
 	director->drop();

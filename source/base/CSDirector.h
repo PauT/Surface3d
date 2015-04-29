@@ -49,14 +49,45 @@ public:
 	static Director* getInstance();
 	virtual bool init();
 
+	/**  main loop */
+	virtual void mainLoop() = 0;
+
+	/** Stops the animation. Nothing will be drawn. The main loop won't be triggered anymore.
+     If you don't want to pause your animation call [pause] instead.
+     */
+    virtual void stopMainLoop() = 0;
+
+    /** The main loop is triggered again.
+     Call this function only if [stopAnimation] was called earlier
+     @warning Don't call this function to start the main loop. To run the main loop call runWithScene
+     */
+    virtual void startMainLoop() = 0;
+
+	/** Set the FPS value. */
+	virtual void setFPS(int FPS) = 0;
+
+	inline bool isNextDeltaTimeZero() { return _nextDeltaTimeZero; }
+	void setNextDeltaTimeZero(bool nextDeltaTimeZero);
 
 protected:
+	/* purge data */
+	void purgeDirector();
+	bool _purgeDirectorInNextLoop; // this flag will be set to true in end()
+	
+
 	//global device
 	CS_SYNTHESIZE(IrrlichtDevice*, _gDevice, IrrDevice);
 	//global scene mgr
 	CS_SYNTHESIZE(ISceneManager*, _gSceneMgr, IrrSceneManager);
 	//global gui environment
 	CS_SYNTHESIZE(IGUIEnvironment*, _gGUIEnv, IrrGUIEnvironment);
+
+	/* whether or not the next delta time will be zero */
+	bool _nextDeltaTimeZero;
+
+	/* _animationInterval = 1 / FPS */
+	double _animationInterval;
+	double _oldAnimationInterval;
 
 };
 
@@ -81,10 +112,10 @@ public:
     //
     // Overrides
     //
-    //virtual void mainLoop() override;
-    //virtual void setAnimationInterval(double value) override;
-    //virtual void startAnimation() override;
-    //virtual void stopAnimation() override;
+    virtual void mainLoop() override;
+	virtual void setFPS(int FPS) override;
+    virtual void stopMainLoop() override;
+    virtual void startMainLoop() override;
 
 protected:
     bool _invalid;
