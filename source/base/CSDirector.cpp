@@ -50,10 +50,6 @@ Director* Director::getInstance()
 	return s_SharedDirector;
 }
 
-void Director::purgeDirector()
-{
-
-}
 
 bool Director::init()
 {
@@ -69,14 +65,37 @@ bool Director::init()
 
 	setFPS(60);
 
+	setDisplayStats(true);
+
+	lastFPS = 0;
+
 	return true;
 }
+
+void Director::purgeDirector()
+{
+
+}
+
 
 void Director::setNextDeltaTimeZero(bool nextDeltaTimeZero)
 {
 	_nextDeltaTimeZero = nextDeltaTimeZero;
 }
 
+
+void Director::setDisplayStats(bool displayStats)
+{
+	if(displayStats)
+	{
+		statsText = getIrrGUIEnvironment()->addStaticText(L" ", rect<s32>(10,10,100,50), false);
+	} else 
+	{
+		statsText->remove();
+	}
+
+	_displayStats = displayStats;
+}
 /***************************************************
 * implementation of DisplayLinkDirector
 **************************************************/
@@ -119,15 +138,12 @@ void DisplayLinkDirector::mainLoop()
 
 		int fps = getIrrDevice()->getVideoDriver()->getFPS();
 
-		//if (lastFPS != fps)
+		if (_displayStats && lastFPS != fps)
 		{
-			core::stringw str = L"hello world [";
-			str += getIrrDevice()->getVideoDriver()->getName();
-			str += "] FPS:";
+			core::stringw str = L"FPS:";
 			str += fps;
-
-			getIrrDevice()->setWindowCaption(str.c_str());
-			//lastFPS = fps;
+			statsText->setText(str.c_str());
+			lastFPS = fps;
 		}
 
 	}

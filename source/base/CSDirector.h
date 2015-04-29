@@ -69,6 +69,10 @@ public:
 	inline bool isNextDeltaTimeZero() { return _nextDeltaTimeZero; }
 	void setNextDeltaTimeZero(bool nextDeltaTimeZero);
 
+	/* show fps */
+	void setDisplayStats(bool displayStats);
+
+
 protected:
 	/* purge data */
 	void purgeDirector();
@@ -89,6 +93,12 @@ protected:
 	double _animationInterval;
 	double _oldAnimationInterval;
 
+	/*last fps optmize */
+	int lastFPS;
+	/* stat label */
+	IGUIStaticText* statsText;
+	/*switch of the stats show*/
+	bool _displayStats;
 };
 
 
