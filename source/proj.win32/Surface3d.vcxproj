@@ -52,12 +52,22 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SURFACE3D_EXPORTS;_USR_CS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>
+      </SDLCheck>
       <AdditionalIncludeDirectories>..\..\include;..\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <MinimalRebuild>false</MinimalRebuild>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\bin\$(Configuration).win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Irrlicht.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -84,16 +94,22 @@
     <ClCompile Include="..\base\CSDirector.cpp" />
     <ClCompile Include="..\base\CSNode.cpp" />
     <ClCompile Include="..\base\CSScene.cpp" />
+    <ClCompile Include="..\platform\win32\CSApplication-win32.cpp" />
+    <ClCompile Include="..\platform\win32\CSStdC-win32.cpp" />
     <ClCompile Include="..\surface3d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\base\CSDirector.h" />
     <ClInclude Include="..\base\CSNode.h" />
     <ClInclude Include="..\base\CSScene.h" />
+    <ClInclude Include="..\platform\CSApplicationProtocol.h" />
+    <ClInclude Include="..\platform\CSCommon.h" />
     <ClInclude Include="..\platform\CSPlatformConfig.h" />
     <ClInclude Include="..\platform\CSPlatformDefine.h" />
     <ClInclude Include="..\platform\CSPlatformMacros.h" />
+    <ClInclude Include="..\platform\win32\CSApplication-win32.h" />
     <ClInclude Include="..\platform\win32\CSPlatformDefine-win32.h" />
+    <ClInclude Include="..\platform\win32\CSStdC-win32.h" />
     <ClInclude Include="..\surface3d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

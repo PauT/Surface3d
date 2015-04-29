@@ -1,5 +1,8 @@
 /****************************************************************************
-Copyright (c) 2014 PauT
+Copyright (c) 2010-2012 cocos2d-x.org
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+
+http://www.cocos2d-x.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,28 +24,30 @@ THE SOFTWARE.
 ****************************************************************************/
 
 
-#ifndef	__SSCENE_H__
-#define __SSCENE_H__
+#include "platform/CSPlatformConfig.h"
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
 
-#include "platform/CSPlatformMacros.h"
-#include <irrlicht.h>
-USING_NS_IRR;
+#include "platform/CSStdC.h"
 
+#ifndef __MINGW32__
 
 NS_CS_BEGIN
 
-class CS_DLL CSScene
+int gettimeofday(struct timeval * val, struct timezone *)
 {
-public:
-	CSScene();
-	~CSScene();
-
-private:
-
-};
-
+    if (val)
+    {
+        LARGE_INTEGER liTime, liFreq;
+        QueryPerformanceFrequency( &liFreq );
+        QueryPerformanceCounter( &liTime );
+        val->tv_sec     = (long)( liTime.QuadPart / liFreq.QuadPart );
+        val->tv_usec    = (long)( liTime.QuadPart * 1000000.0 / liFreq.QuadPart - val->tv_sec * 1000000.0 );
+    }
+    return 0;
+}
 
 NS_CS_END
 
+#endif // __MINGW32__
 
-#endif
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32

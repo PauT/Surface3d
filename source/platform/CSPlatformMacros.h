@@ -43,4 +43,11 @@ THE SOFTWARE.
 						using namespace io;		\
 						using namespace gui;
 
+
+#define CS_SYNTHESIZE(varType, varName, funName)\
+protected: varType varName;\
+public: virtual varType get##funName(void) const { return varName; }\
+public: virtual void set##funName(varType var){ varName = var; }
+
+
 #endif // __CC_PLATFORM_MACROS_H__

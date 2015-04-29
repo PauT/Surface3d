@@ -32,22 +32,31 @@ THE SOFTWARE.
 #define __SDIRECTOR_H__
 
 #include "platform/CSPlatformMacros.h"
+#include "platform/CSApplication.h"
+
 #include <irrlicht.h>
 USING_NS_IRR;
 
 
 NS_CS_BEGIN
-class CS_DLL Director
+class CS_DLL Director : public IReferenceCounted
 {
 public:
 	Director(void);
-	~Director();
+	virtual ~Director();
 
 	/** returns a shared instance of the director */
 	static Director* getInstance();
+	virtual bool init();
 
 
-private:
+protected:
+	//global device
+	CS_SYNTHESIZE(IrrlichtDevice*, _gDevice, IrrDevice);
+	//global scene mgr
+	CS_SYNTHESIZE(ISceneManager*, _gSceneMgr, IrrSceneManager);
+	//global gui environment
+	CS_SYNTHESIZE(IGUIEnvironment*, _gGUIEnv, IrrGUIEnvironment);
 
 };
 

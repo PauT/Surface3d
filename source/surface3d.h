@@ -26,7 +26,10 @@ THE SOFTWARE.
 // 00   00 00 01
 #define COCOSURFACE3D_VERSION 0x00000001
 #include "platform/CSPlatformMacros.h"
+#include "platform/CSApplicationProtocol.h"
+
 
 #include "base/CSScene.h"
+#include "base/CSDirector.h"
 
 #endif

@@ -1,5 +1,8 @@
 /****************************************************************************
-Copyright (c) 2014 PauT
+Copyright (c) 2010-2012 cocos2d-x.org
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+
+http://www.cocos2d-x.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,29 +23,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
+#ifndef __PLATFORM_CCAPPLICATION_H__
+#define __PLATFORM_CCAPPLICATION_H__
 
-#ifndef	__SSCENE_H__
-#define __SSCENE_H__
+#include "platform/CSPlatformConfig.h"
 
-#include "platform/CSPlatformMacros.h"
-#include <irrlicht.h>
-USING_NS_IRR;
-
-
-NS_CS_BEGIN
-
-class CS_DLL CSScene
-{
-public:
-	CSScene();
-	~CSScene();
-
-private:
-
-};
-
-
-NS_CS_END
-
-
+#if CC_TARGET_PLATFORM == CC_PLATFORM_MAC
+#include "platform/mac/CSApplication-mac.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#include "platform/ios/CSApplication-ios.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#include "platform/android/CSApplication-android.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+#include "platform/win32/CSApplication-win32.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_WP8
+#include "platform/winrt/CSApplication.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
+#include "platform/linux/CSApplication-linux.h"
 #endif
+
+#endif /* __PLATFORM_CCAPPLICATION_H__*/

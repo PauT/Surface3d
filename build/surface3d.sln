@@ -12,6 +12,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Surface3d", "..\source\proj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp_test", "..\sample\cpp_test\proj.win32\cpp_test.vcxproj", "{5141CD1D-CD02-4010-A5AA-B58DC985116C}"
 	ProjectSection(ProjectDependencies) = postProject
+		{E08E042A-6C45-411B-92BE-3CC31331019F} = {E08E042A-6C45-411B-92BE-3CC31331019F}
 		{72BC1C6B-27B3-4CF6-83CA-EC5F9541FE99} = {72BC1C6B-27B3-4CF6-83CA-EC5F9541FE99}
 	EndProjectSection
 EndProject

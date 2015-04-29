@@ -4,6 +4,9 @@
     <Filter Include="win32">
       <UniqueIdentifier>{676e9ab4-d94b-4da1-8d15-8560d00e1e77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{90568505-34ac-40e2-9ad4-13d9d7523839}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -12,10 +15,16 @@
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

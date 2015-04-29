@@ -1,5 +1,8 @@
 /****************************************************************************
-Copyright (c) 2014 PauT
+Copyright (c) 2010-2012 cocos2d-x.org
+Copyright (c) 2013-2014 Chukong Technologies Inc.
+
+http://www.cocos2d-x.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,29 +23,53 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-
-#ifndef	__SSCENE_H__
-#define __SSCENE_H__
+#ifndef __CS_COMMON_H__
+#define __CS_COMMON_H__
 
 #include "platform/CSPlatformMacros.h"
-#include <irrlicht.h>
-USING_NS_IRR;
-
 
 NS_CS_BEGIN
 
-class CS_DLL CSScene
+/**
+ * @addtogroup platform
+ * @{
+ */
+
+/**
+ * lua can not deal with ...
+ */
+void CS_DLL LuaLog(const char * format);
+
+/**
+@brief Pop out a message box
+*/
+void CS_DLL MessageBox(const char * msg, const char * title);
+
+/**
+@brief Enum the language type supported now
+*/
+enum class LanguageType
 {
-public:
-	CSScene();
-	~CSScene();
-
-private:
-
+    ENGLISH = 0,
+    CHINESE,
+    FRENCH,
+    ITALIAN,
+    GERMAN,
+    SPANISH,
+    DUTCH,
+    RUSSIAN,
+    KOREAN,
+    JAPANESE,
+    HUNGARIAN,
+    PORTUGUESE,
+    ARABIC,
+    NORWEGIAN,
+    POLISH
 };
 
+// END of platform group
+/// @}
 
 NS_CS_END
 
-
-#endif
+#endif    // __CC_COMMON_H__

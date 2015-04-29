@@ -14,6 +14,12 @@
     <ClCompile Include="..\base\CSDirector.cpp">
       <Filter>base</Filter>
     </ClCompile>
+    <ClCompile Include="..\platform\win32\CSApplication-win32.cpp">
+      <Filter>platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\platform\win32\CSStdC-win32.cpp">
+      <Filter>platform\win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\surface3d.h" />
@@ -37,6 +43,18 @@
     </ClInclude>
     <ClInclude Include="..\base\CSDirector.h">
       <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\CSApplicationProtocol.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\CSCommon.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\win32\CSApplication-win32.h">
+      <Filter>platform\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\win32\CSStdC-win32.h">
+      <Filter>platform\win32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

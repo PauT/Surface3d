@@ -20,6 +20,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include "CSDirector.h"
+#include <irrlicht.h>
+USING_NS_IRR;
+
 NS_CS_BEGIN
 
 // singleton stuff
@@ -31,7 +34,7 @@ Director::Director()
 
 Director::~Director()
 {
-
+	_gDevice->drop();
 }
 
 /** returns a shared instance of the director */
@@ -41,10 +44,24 @@ Director* Director::getInstance()
 	{
 		s_SharedDirector = new (std::nothrow) DisplayLinkDirector();
 		//CCASSERT(s_SharedDirector, "FATAL: Not enough memory");
-		//s_SharedDirector->init();
+		s_SharedDirector->init();
 	}
 
 	return s_SharedDirector;
 }
+
+bool Director::init()
+{
+	_gDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(480, 320), 16,
+		false, false, false, 0);
+
+	getIrrDevice()->setWindowCaption(L"hello surface 3D");
+	setIrrSceneManager(getIrrDevice()->getSceneManager());
+	setIrrGUIEnvironment(getIrrDevice()->getGUIEnvironment());
+	getIrrSceneManager()->addCameraSceneNode(0, vector3df(0,30,-40), vector3df(0,5,0));
+
+	return true;
+}
+
 
 NS_CS_END

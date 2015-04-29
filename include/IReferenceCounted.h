@@ -38,7 +38,7 @@ namespace irr
 	the name of the method does not start with 'create'. The texture
 	is stored somewhere by the driver.
 	*/
-	class IReferenceCounted
+	class IRRLICHT_API IReferenceCounted
 	{
 	public:
 
