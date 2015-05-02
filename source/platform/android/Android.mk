@@ -2,9 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := cocos2dxandroid_static
+LOCAL_MODULE := surface3dandroid_static
 
-LOCAL_MODULE_FILENAME := libcocos2dandroid
+LOCAL_MODULE_FILENAME := libsurface3dandroid
 
 LOCAL_SRC_FILES := \
 CCApplication-android.cpp \
