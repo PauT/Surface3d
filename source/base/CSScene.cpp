@@ -23,11 +23,7 @@ THE SOFTWARE.
 NS_CS_BEGIN
 
 
-CSScene::CSScene()
-{
-
-}
-CSScene::~CSScene()
+Scene::~Scene()
 {
 
 }

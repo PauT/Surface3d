@@ -31,11 +31,17 @@ USING_NS_IRR;
 
 NS_CS_BEGIN
 
-class CS_DLL CSScene
+class CS_DLL Scene : public ISceneNode
 {
 public:
-	CSScene();
-	~CSScene();
+
+	//! Constructor
+	Scene(ISceneNode* parent, ISceneManager* mgr, s32 id=-1,
+		const core::vector3df& position = core::vector3df(0,0,0),
+		const core::vector3df& rotation = core::vector3df(0,0,0),
+		const core::vector3df& scale = core::vector3df(1.0f, 1.0f, 1.0f));
+	//Scene();
+	~Scene();
 
 private:
 

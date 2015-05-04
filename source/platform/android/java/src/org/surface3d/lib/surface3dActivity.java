@@ -27,7 +27,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 
-import org.surface3d.lib.Cocos2dxHelper.Cocos2dxHelperListener;
+import org.surface3d.lib.surface3dHelper.surface3dHelperListener;
 
 import android.app.Activity;
 import android.content.Context;

@@ -33,6 +33,8 @@ THE SOFTWARE.
 
 #include "platform/CSPlatformMacros.h"
 #include "platform/CSApplication.h"
+#include "base/CSScene.h"
+#include "CSLibrary/CSVector.h"
 
 #include <irrlicht.h>
 USING_NS_IRR;
@@ -72,6 +74,56 @@ public:
 	/* show fps */
 	void setDisplayStats(bool displayStats);
 
+	/* set screen size*/
+	void setScreenSize(int width, int height);
+
+	/* set full screen*/
+	void setFullScreen(bool isSetFullscreen);
+
+	/* is Editor mode*/
+	CS_SYNTHESIZE(bool, _gEditMode, IsEditMode);
+
+	// Scene Management
+
+    /** Enters the Director's main loop with the given Scene.
+     * Call it to run only your FIRST scene.
+     * Don't call it if there is already a running scene.
+     *
+     * It will call pushScene: and then it will call startAnimation
+     */
+    void runWithScene(Scene *scene);
+
+    /** Suspends the execution of the running scene, pushing it on the stack of suspended scenes.
+     * The new scene will be executed.
+     * Try to avoid big stacks of pushed scenes to reduce memory allocation. 
+     * ONLY call it if there is a running scene.
+     */
+    void pushScene(Scene *scene);
+
+    /** Pops out a scene from the stack.
+     * This scene will replace the running one.
+     * The running scene will be deleted. If there are no more scenes in the stack the execution is terminated.
+     * ONLY call it if there is a running scene.
+     */
+    void popScene();
+
+    /** Pops out all scenes from the stack until the root scene in the queue.
+     * This scene will replace the running one.
+     * Internally it will call `popToSceneStackLevel(1)`
+     */
+    void popToRootScene();
+
+    /** Pops out all scenes from the stack until it reaches `level`.
+     If level is 0, it will end the director.
+     If level is 1, it will pop all scenes until it reaches to root scene.
+     If level is <= than the current stack level, it won't do anything.
+     */
+ 	void popToSceneStackLevel(int level);
+
+    /** Replaces the running scene with a new one. The running scene is terminated.
+     * ONLY call it if there is a running scene.
+     */
+    void replaceScene(Scene *scene);
 
 protected:
 	/* purge data */
@@ -92,6 +144,20 @@ protected:
 	/* _animationInterval = 1 / FPS */
 	double _animationInterval;
 	double _oldAnimationInterval;
+
+	/* The running scene */
+    Scene *_runningScene;
+    
+    /* will be the next 'runningScene' in the next frame
+     nextScene is a weak reference. */
+    Scene *_nextScene;
+    
+    /* If true, then "old" scene will receive the cleanup message */
+    bool _sendCleanupToScene;
+
+    /* scheduled scenes */
+    Vector<Scene*> _scenesStack;
+
 
 	/*last fps optmize */
 	int lastFPS;

@@ -56,6 +56,9 @@
     <ClInclude Include="..\platform\win32\CSStdC-win32.h">
       <Filter>platform\win32</Filter>
     </ClInclude>
+    <ClInclude Include="..\CSLibrary\CSVector.h">
+      <Filter>CSLibrary</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="base">
@@ -66,6 +69,9 @@
     </Filter>
     <Filter Include="platform\win32">
       <UniqueIdentifier>{fc3e19e9-c914-43b2-99eb-44740e76e192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSLibrary">
+      <UniqueIdentifier>{457efc51-30b0-4081-9992-1fef75b5ffff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

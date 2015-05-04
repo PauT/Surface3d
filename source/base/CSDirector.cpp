@@ -53,7 +53,7 @@ Director* Director::getInstance()
 
 bool Director::init()
 {
-	_gDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(480, 320), 16,
+	_gDevice = createDevice( video::EDT_OPENGL, dimension2d<u32>(1024, 768), 16,
 		false, false, false, 0);
 
 	getIrrDevice()->setWindowCaption(L"hello surface 3D");
@@ -96,6 +96,144 @@ void Director::setDisplayStats(bool displayStats)
 
 	_displayStats = displayStats;
 }
+
+
+/* set screen size*/
+void Director::setScreenSize(int width, int height)
+{
+	//getIrrDevice()->setResizable()
+}
+
+/* set full screen*/
+void Director::setFullScreen(bool isSetFullscreen)
+{
+	//if(getIrrDevice())
+	//	getIrrDevice()->switchToFullScreen(isSetFullscreen);
+}
+
+
+// scene management
+
+void Director::runWithScene(Scene *scene)
+{
+	_IRR_DEBUG_BREAK_IF(scene == nullptr);
+	_IRR_DEBUG_BREAK_IF(_runningScene != nullptr);
+
+	pushScene(scene);
+	startMainLoop();
+}
+
+void Director::replaceScene(Scene *scene)
+{
+	//CCASSERT(_runningScene, "Use runWithScene: instead to start the director");
+	_IRR_DEBUG_BREAK_IF(scene == nullptr);
+
+	if (_runningScene == nullptr) {
+		runWithScene(scene);
+		return;
+	}
+
+	if (scene == _nextScene)
+		return;
+
+	if (_nextScene)
+	{
+		/*if (_nextScene->isRunning())
+		{
+			_nextScene->onExit();
+		}
+		_nextScene->cleanup();*/
+		_nextScene->drop();
+		_nextScene = nullptr;
+	}
+
+	ssize_t index = _scenesStack.size();
+
+	_sendCleanupToScene = true;
+	_scenesStack.replace(index - 1, scene);
+	_nextScene = scene;
+}
+
+void Director::pushScene(Scene *scene)
+{
+	_IRR_DEBUG_BREAK_IF(scene == nullptr);
+
+	_sendCleanupToScene = false;
+
+	_scenesStack.pushBack(scene);
+	_nextScene = scene;
+}
+
+void Director::popScene(void)
+{
+	_IRR_DEBUG_BREAK_IF(_runningScene == nullptr);
+
+	_scenesStack.popBack();
+	ssize_t c = _scenesStack.size();
+
+	if (c == 0)
+	{
+		//end();
+		_purgeDirectorInNextLoop = true;
+	}
+	else
+	{
+		_sendCleanupToScene = true;
+		_nextScene = _scenesStack.at(c - 1);
+	}
+}
+
+void Director::popToRootScene(void)
+{
+	popToSceneStackLevel(1);
+}
+
+void Director::popToSceneStackLevel(int level)
+{
+	_IRR_DEBUG_BREAK_IF(_runningScene == nullptr);
+	ssize_t c = _scenesStack.size();
+
+	// level 0? -> end
+	if (level == 0)
+	{
+		//end();
+		_purgeDirectorInNextLoop = true;
+		return;
+	}
+
+	// current level or lower -> nothing
+	if (level >= c)
+		return;
+
+	auto fisrtOnStackScene = _scenesStack.back();
+	if (fisrtOnStackScene == _runningScene)
+	{
+		_scenesStack.popBack();
+		--c;
+	}
+
+	// pop stack until reaching desired level
+	while (c > level)
+	{
+		auto current = _scenesStack.back();
+
+		/*if (current->isRunning())
+		{
+			current->onExit();
+		}
+
+		current->cleanup();*/
+		_scenesStack.popBack();
+		--c;
+	}
+
+	_nextScene = _scenesStack.back();
+
+	// cleanup running scene
+	_sendCleanupToScene = true;
+}
+
+
 /***************************************************
 * implementation of DisplayLinkDirector
 **************************************************/
