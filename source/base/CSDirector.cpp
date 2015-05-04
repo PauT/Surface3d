@@ -69,6 +69,11 @@ bool Director::init()
 
 	lastFPS = 0;
 
+
+	_runningScene = nullptr;
+	_nextScene = nullptr;
+	_scenesStack.reserve(15);
+
 	return true;
 }
 
@@ -234,6 +239,44 @@ void Director::popToSceneStackLevel(int level)
 }
 
 
+void Director::setNextScene()
+{
+	/*bool runningIsTransition = dynamic_cast<TransitionScene*>(_runningScene) != nullptr;
+	bool newIsTransition = dynamic_cast<TransitionScene*>(_nextScene) != nullptr;
+
+	// If it is not a transition, call onExit/cleanup
+	if (! newIsTransition)
+	{
+		if (_runningScene)
+		{
+			_runningScene->onExitTransitionDidStart();
+			_runningScene->onExit();
+		}
+
+		// issue #709. the root node (scene) should receive the cleanup message too
+		// otherwise it might be leaked.
+		if (_sendCleanupToScene && _runningScene)
+		{
+			_runningScene->cleanup();
+		}
+	}*/
+
+	if (_runningScene)
+	{
+		_runningScene->drop();
+	}
+	_runningScene = _nextScene;
+	_nextScene->grab();
+	_nextScene = nullptr;
+
+	/*if ((! runningIsTransition) && _runningScene)
+	{
+		_runningScene->onEnter();
+		_runningScene->onEnterTransitionDidFinish();
+	}*/
+}
+
+
 /***************************************************
 * implementation of DisplayLinkDirector
 **************************************************/
@@ -267,6 +310,14 @@ void DisplayLinkDirector::mainLoop()
 	}
 	else if (! _invalid)
 	{
+
+		/* to avoid flickr, nextScene MUST be here: after tick and before draw.
+		* FIXME: Which bug is this one. It seems that it can't be reproduced with v0.9
+		*/
+		if (_nextScene)
+		{
+			setNextScene();
+		}
 		getIrrDevice()->getVideoDriver()->beginScene(true, true, SColor(255,100,101,140));
 		getIrrSceneManager()->drawAll();
 		getIrrGUIEnvironment()->drawAll();

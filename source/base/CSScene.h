@@ -35,13 +35,23 @@ class CS_DLL Scene : public ISceneNode
 {
 public:
 
-	//! Constructor
-	Scene(ISceneNode* parent, ISceneManager* mgr, s32 id=-1,
+	Scene(ISceneNode* parent, ISceneManager* mgr, s32 id,
 		const core::vector3df& position = core::vector3df(0,0,0),
 		const core::vector3df& rotation = core::vector3df(0,0,0),
-		const core::vector3df& scale = core::vector3df(1.0f, 1.0f, 1.0f));
-	//Scene();
+		const core::vector3df& scale = core::vector3df(1.0f, 1.0f, 1.0f))
+		: ISceneNode(parent, mgr, id, position, rotation, scale) {};
+
 	~Scene();
+	/*create scene*/
+	Scene* create(ISceneManager* mgr);
+
+	bool init();
+
+	void render();
+
+	virtual const core::aabbox3d<f32>& getBoundingBox() const;
+
+	
 
 private:
 

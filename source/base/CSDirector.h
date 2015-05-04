@@ -130,6 +130,8 @@ protected:
 	void purgeDirector();
 	bool _purgeDirectorInNextLoop; // this flag will be set to true in end()
 	
+	void setNextScene();
+
 
 	//global device
 	CS_SYNTHESIZE(IrrlichtDevice*, _gDevice, IrrDevice);
