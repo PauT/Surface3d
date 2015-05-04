@@ -43,7 +43,7 @@ public:
 
 	~Scene();
 	/*create scene*/
-	Scene* create(ISceneManager* mgr);
+	static Scene* create(ISceneManager* mgr);
 
 	bool init();
 

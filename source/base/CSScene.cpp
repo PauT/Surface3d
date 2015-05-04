@@ -30,7 +30,8 @@ Scene::~Scene()
 /*create scene*/
 Scene* Scene::create(ISceneManager* mgr)
 {
-	Scene *pRet = new Scene(0, mgr, 0);
+	ISceneNode *tScene = mgr->addEmptySceneNode(0);
+	Scene *pRet = (Scene *)tScene;
 	if(pRet && pRet->init())
 	{
 		return pRet;

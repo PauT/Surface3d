@@ -132,7 +132,15 @@ bool AppDelegate::applicationDidFinishLaunching()
     {
         layer->startAutoRun();
     }*/
-    
+    auto scene = Scene::create(director->getIrrSceneManager());
+	director->runWithScene(scene);
+
+
+	IAnimatedMesh* mesh = director->getIrrSceneManager()->getMesh("./media/sydney.md2");
+	director->getIrrSceneManager()->addAnimatedMeshSceneNode(mesh, scene);
+
+	scene->setVisible(false);
+
     return true;
 }
 

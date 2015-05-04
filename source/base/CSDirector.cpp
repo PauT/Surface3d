@@ -61,6 +61,7 @@ bool Director::init()
 	setIrrGUIEnvironment(getIrrDevice()->getGUIEnvironment());
 	getIrrSceneManager()->addCameraSceneNode(0, vector3df(0,30,-40), vector3df(0,5,0));
 
+
 	_purgeDirectorInNextLoop = false;
 
 	setFPS(60);
