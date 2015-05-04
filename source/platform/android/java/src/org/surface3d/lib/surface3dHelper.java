@@ -22,7 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  ****************************************************************************/
-package org.cocos2dx.lib;
+package org.surface3d.lib;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
@@ -43,7 +43,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-public class Cocos2dxHelper {
+public class surface3dHelper {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -63,7 +63,7 @@ public class Cocos2dxHelper {
     private static String sPackageName;
     private static String sFileDirectory;
     private static Activity sActivity = null;
-    private static Cocos2dxHelperListener sCocos2dxHelperListener;
+    private static surface3dHelperListener ssurface3dHelperListener;
     private static Set<OnActivityResultListener> onActivityResultListeners = new LinkedHashSet<OnActivityResultListener>();
 
 
@@ -72,7 +72,7 @@ public class Cocos2dxHelper {
     // ===========================================================
 
     public static void runOnGLThread(final Runnable r) {
-        ((Cocos2dxActivity)sActivity).runOnGLThread(r);
+        ((surface3dActivity)sActivity).runOnGLThread(r);
     }
 
     private static boolean sInited = false;
@@ -80,17 +80,17 @@ public class Cocos2dxHelper {
         if (!sInited) {
             final ApplicationInfo applicationInfo = activity.getApplicationInfo();
             
-            Cocos2dxHelper.sCocos2dxHelperListener = (Cocos2dxHelperListener)activity;
+            surface3dHelper.ssurface3dHelperListener = (surface3dHelperListener)activity;
                     
-            Cocos2dxHelper.sPackageName = applicationInfo.packageName;
-            Cocos2dxHelper.sFileDirectory = activity.getFilesDir().getAbsolutePath();
-            Cocos2dxHelper.nativeSetApkPath(applicationInfo.sourceDir);
+            surface3dHelper.sPackageName = applicationInfo.packageName;
+            surface3dHelper.sFileDirectory = activity.getFilesDir().getAbsolutePath();
+            surface3dHelper.nativeSetApkPath(applicationInfo.sourceDir);
     
-            Cocos2dxHelper.sCocos2dxAccelerometer = new Cocos2dxAccelerometer(activity);
-            Cocos2dxHelper.sCocos2dMusic = new Cocos2dxMusic(activity);
-            Cocos2dxHelper.sCocos2dSound = new Cocos2dxSound(activity);
-            Cocos2dxHelper.sAssetManager = activity.getAssets();
-            Cocos2dxHelper.nativeSetContext((Context)activity, Cocos2dxHelper.sAssetManager);
+            surface3dHelper.sCocos2dxAccelerometer = new Cocos2dxAccelerometer(activity);
+            surface3dHelper.sCocos2dMusic = new Cocos2dxMusic(activity);
+            surface3dHelper.sCocos2dSound = new Cocos2dxSound(activity);
+            surface3dHelper.sAssetManager = activity.getAssets();
+            surface3dHelper.nativeSetContext((Context)activity, surface3dHelper.sAssetManager);
     
             Cocos2dxBitmap.setContext(activity);
             sActivity = activity;
@@ -135,11 +135,11 @@ public class Cocos2dxHelper {
     private static native void nativeSetContext(final Context pContext, final AssetManager pAssetManager);
 
     public static String getCocos2dxPackageName() {
-        return Cocos2dxHelper.sPackageName;
+        return surface3dHelper.sPackageName;
     }
 
     public static String getCocos2dxWritablePath() {
-        return Cocos2dxHelper.sFileDirectory;
+        return surface3dHelper.sFileDirectory;
     }
 
     public static String getCurrentLanguage() {
@@ -151,26 +151,26 @@ public class Cocos2dxHelper {
     }
 
     public static AssetManager getAssetManager() {
-        return Cocos2dxHelper.sAssetManager;
+        return surface3dHelper.sAssetManager;
     }
 
     public static void enableAccelerometer() {
-        Cocos2dxHelper.sAccelerometerEnabled = true;
-        Cocos2dxHelper.sCocos2dxAccelerometer.enable();
+        surface3dHelper.sAccelerometerEnabled = true;
+        surface3dHelper.sCocos2dxAccelerometer.enable();
     }
 
 
     public static void setAccelerometerInterval(float interval) {
-        Cocos2dxHelper.sCocos2dxAccelerometer.setInterval(interval);
+        surface3dHelper.sCocos2dxAccelerometer.setInterval(interval);
     }
 
     public static void disableAccelerometer() {
-        Cocos2dxHelper.sAccelerometerEnabled = false;
-        Cocos2dxHelper.sCocos2dxAccelerometer.disable();
+        surface3dHelper.sAccelerometerEnabled = false;
+        surface3dHelper.sCocos2dxAccelerometer.disable();
     }
     
     public static void setKeepScreenOn(boolean value) {
-        ((Cocos2dxActivity)sActivity).setKeepScreenOn(value);
+        ((surface3dActivity)sActivity).setKeepScreenOn(value);
     }
     
     public static boolean openURL(String url) { 
@@ -186,101 +186,101 @@ public class Cocos2dxHelper {
     }
 
     public static void preloadBackgroundMusic(final String pPath) {
-        Cocos2dxHelper.sCocos2dMusic.preloadBackgroundMusic(pPath);
+        surface3dHelper.sCocos2dMusic.preloadBackgroundMusic(pPath);
     }
 
     public static void playBackgroundMusic(final String pPath, final boolean isLoop) {
-        Cocos2dxHelper.sCocos2dMusic.playBackgroundMusic(pPath, isLoop);
+        surface3dHelper.sCocos2dMusic.playBackgroundMusic(pPath, isLoop);
     }
 
     public static void resumeBackgroundMusic() {
-        Cocos2dxHelper.sCocos2dMusic.resumeBackgroundMusic();
+        surface3dHelper.sCocos2dMusic.resumeBackgroundMusic();
     }
 
     public static void pauseBackgroundMusic() {
-        Cocos2dxHelper.sCocos2dMusic.pauseBackgroundMusic();
+        surface3dHelper.sCocos2dMusic.pauseBackgroundMusic();
     }
 
     public static void stopBackgroundMusic() {
-        Cocos2dxHelper.sCocos2dMusic.stopBackgroundMusic();
+        surface3dHelper.sCocos2dMusic.stopBackgroundMusic();
     }
 
     public static void rewindBackgroundMusic() {
-        Cocos2dxHelper.sCocos2dMusic.rewindBackgroundMusic();
+        surface3dHelper.sCocos2dMusic.rewindBackgroundMusic();
     }
 
     public static boolean isBackgroundMusicPlaying() {
-        return Cocos2dxHelper.sCocos2dMusic.isBackgroundMusicPlaying();
+        return surface3dHelper.sCocos2dMusic.isBackgroundMusicPlaying();
     }
 
     public static float getBackgroundMusicVolume() {
-        return Cocos2dxHelper.sCocos2dMusic.getBackgroundVolume();
+        return surface3dHelper.sCocos2dMusic.getBackgroundVolume();
     }
 
     public static void setBackgroundMusicVolume(final float volume) {
-        Cocos2dxHelper.sCocos2dMusic.setBackgroundVolume(volume);
+        surface3dHelper.sCocos2dMusic.setBackgroundVolume(volume);
     }
 
     public static void preloadEffect(final String path) {
-        Cocos2dxHelper.sCocos2dSound.preloadEffect(path);
+        surface3dHelper.sCocos2dSound.preloadEffect(path);
     }
 
     public static int playEffect(final String path, final boolean isLoop, final float pitch, final float pan, final float gain) {
-        return Cocos2dxHelper.sCocos2dSound.playEffect(path, isLoop, pitch, pan, gain);
+        return surface3dHelper.sCocos2dSound.playEffect(path, isLoop, pitch, pan, gain);
     }
 
     public static void resumeEffect(final int soundId) {
-        Cocos2dxHelper.sCocos2dSound.resumeEffect(soundId);
+        surface3dHelper.sCocos2dSound.resumeEffect(soundId);
     }
 
     public static void pauseEffect(final int soundId) {
-        Cocos2dxHelper.sCocos2dSound.pauseEffect(soundId);
+        surface3dHelper.sCocos2dSound.pauseEffect(soundId);
     }
 
     public static void stopEffect(final int soundId) {
-        Cocos2dxHelper.sCocos2dSound.stopEffect(soundId);
+        surface3dHelper.sCocos2dSound.stopEffect(soundId);
     }
 
     public static float getEffectsVolume() {
-        return Cocos2dxHelper.sCocos2dSound.getEffectsVolume();
+        return surface3dHelper.sCocos2dSound.getEffectsVolume();
     }
 
     public static void setEffectsVolume(final float volume) {
-        Cocos2dxHelper.sCocos2dSound.setEffectsVolume(volume);
+        surface3dHelper.sCocos2dSound.setEffectsVolume(volume);
     }
 
     public static void unloadEffect(final String path) {
-        Cocos2dxHelper.sCocos2dSound.unloadEffect(path);
+        surface3dHelper.sCocos2dSound.unloadEffect(path);
     }
 
     public static void pauseAllEffects() {
-        Cocos2dxHelper.sCocos2dSound.pauseAllEffects();
+        surface3dHelper.sCocos2dSound.pauseAllEffects();
     }
 
     public static void resumeAllEffects() {
-        Cocos2dxHelper.sCocos2dSound.resumeAllEffects();
+        surface3dHelper.sCocos2dSound.resumeAllEffects();
     }
 
     public static void stopAllEffects() {
-        Cocos2dxHelper.sCocos2dSound.stopAllEffects();
+        surface3dHelper.sCocos2dSound.stopAllEffects();
     }
 
     public static void end() {
-        Cocos2dxHelper.sCocos2dMusic.end();
-        Cocos2dxHelper.sCocos2dSound.end();
+        surface3dHelper.sCocos2dMusic.end();
+        surface3dHelper.sCocos2dSound.end();
     }
 
     public static void onResume() {
         sActivityVisible = true;
-        if (Cocos2dxHelper.sAccelerometerEnabled) {
-            Cocos2dxHelper.sCocos2dxAccelerometer.enable();
+        if (surface3dHelper.sAccelerometerEnabled) {
+            surface3dHelper.sCocos2dxAccelerometer.enable();
         }
     }
 
     public static void onPause() {
         sActivityVisible = false;
-        if (Cocos2dxHelper.sAccelerometerEnabled) {
-            Cocos2dxHelper.sCocos2dxAccelerometer.disable();
+        if (surface3dHelper.sAccelerometerEnabled) {
+            surface3dHelper.sCocos2dxAccelerometer.disable();
         }
     }
 
@@ -299,21 +299,21 @@ public class Cocos2dxHelper {
     }
 
     private static void showDialog(final String pTitle, final String pMessage) {
-        Cocos2dxHelper.sCocos2dxHelperListener.showDialog(pTitle, pMessage);
+        surface3dHelper.ssurface3dHelperListener.showDialog(pTitle, pMessage);
     }
 
     private static void showEditTextDialog(final String pTitle, final String pMessage, final int pInputMode, final int pInputFlag, final int pReturnType, final int pMaxLength) {
-        Cocos2dxHelper.sCocos2dxHelperListener.showEditTextDialog(pTitle, pMessage, pInputMode, pInputFlag, pReturnType, pMaxLength);
+        surface3dHelper.ssurface3dHelperListener.showEditTextDialog(pTitle, pMessage, pInputMode, pInputFlag, pReturnType, pMaxLength);
     }
 
     public static void setEditTextDialogResult(final String pResult) {
         try {
             final byte[] bytesUTF8 = pResult.getBytes("UTF8");
 
-            Cocos2dxHelper.sCocos2dxHelperListener.runOnGLThread(new Runnable() {
+            surface3dHelper.ssurface3dHelperListener.runOnGLThread(new Runnable() {
                 @Override
                 public void run() {
-                    Cocos2dxHelper.nativeSetEditTextDialogResult(bytesUTF8);
+                    surface3dHelper.nativeSetEditTextDialogResult(bytesUTF8);
                 }
             });
         } catch (UnsupportedEncodingException pUnsupportedEncodingException) {
@@ -345,47 +345,47 @@ public class Cocos2dxHelper {
     // ===========================================================
     
     public static boolean getBoolForKey(String key, boolean defaultValue) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         return settings.getBoolean(key, defaultValue);
     }
     
     public static int getIntegerForKey(String key, int defaultValue) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         return settings.getInt(key, defaultValue);
     }
     
     public static float getFloatForKey(String key, float defaultValue) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         return settings.getFloat(key, defaultValue);
     }
     
     public static double getDoubleForKey(String key, double defaultValue) {
         // SharedPreferences doesn't support saving double value
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         return settings.getFloat(key, (float)defaultValue);
     }
     
     public static String getStringForKey(String key, String defaultValue) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         return settings.getString(key, defaultValue);
     }
     
     public static void setBoolForKey(String key, boolean value) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(key, value);
         editor.commit();
     }
     
     public static void setIntegerForKey(String key, int value) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt(key, value);
         editor.commit();
     }
     
     public static void setFloatForKey(String key, float value) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putFloat(key, value);
         editor.commit();
@@ -393,14 +393,14 @@ public class Cocos2dxHelper {
     
     public static void setDoubleForKey(String key, double value) {
         // SharedPreferences doesn't support recording double value
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putFloat(key, (float)value);
         editor.commit();
     }
     
     public static void setStringForKey(String key, String value) {
-        SharedPreferences settings = sActivity.getSharedPreferences(Cocos2dxHelper.PREFS_NAME, 0);
+        SharedPreferences settings = sActivity.getSharedPreferences(surface3dHelper.PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(key, value);
         editor.commit();
@@ -410,7 +410,7 @@ public class Cocos2dxHelper {
     // Inner and Anonymous Classes
     // ===========================================================
 
-    public static interface Cocos2dxHelperListener {
+    public static interface surface3dHelperListener {
         public void showDialog(final String pTitle, final String pMessage);
         public void showEditTextDialog(final String pTitle, final String pMessage, final int pInputMode, final int pInputFlag, final int pReturnType, final int pMaxLength);
 

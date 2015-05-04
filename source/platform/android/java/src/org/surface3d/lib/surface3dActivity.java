@@ -21,13 +21,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  ****************************************************************************/
-package org.cocos2dx.lib;
+package org.surface3d.lib;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 
-import org.cocos2dx.lib.Cocos2dxHelper.Cocos2dxHelperListener;
+import org.surface3d.lib.Cocos2dxHelper.Cocos2dxHelperListener;
 
 import android.app.Activity;
 import android.content.Context;
@@ -45,12 +45,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.opengl.GLSurfaceView;
 
-public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelperListener {
+public abstract class surface3dActivity extends Activity implements surface3dHelperListener {
     // ===========================================================
     // Constants
     // ===========================================================
 
-    private final static String TAG = Cocos2dxActivity.class.getSimpleName();
+    private final static String TAG = surface3dActivity.class.getSimpleName();
 
     // ===========================================================
     // Fields
