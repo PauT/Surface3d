@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\base\CSDirector.cpp" />
+    <ClCompile Include="..\base\CSEventReceiver.cpp" />
     <ClCompile Include="..\base\CSNode.cpp" />
     <ClCompile Include="..\base\CSScene.cpp" />
     <ClCompile Include="..\platform\win32\CSApplication-win32.cpp" />
@@ -100,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\base\CSDirector.h" />
+    <ClInclude Include="..\base\CSEventReceiver.h" />
     <ClInclude Include="..\base\CSNode.h" />
     <ClInclude Include="..\base\CSScene.h" />
     <ClInclude Include="..\CSLibrary\CSVector.h" />
@@ -108,6 +110,7 @@
     <ClInclude Include="..\platform\CSPlatformConfig.h" />
     <ClInclude Include="..\platform\CSPlatformDefine.h" />
     <ClInclude Include="..\platform\CSPlatformMacros.h" />
+    <ClInclude Include="..\platform\CSStdC.h" />
     <ClInclude Include="..\platform\win32\CSApplication-win32.h" />
     <ClInclude Include="..\platform\win32\CSPlatformDefine-win32.h" />
     <ClInclude Include="..\platform\win32\CSStdC-win32.h" />

@@ -20,6 +20,9 @@
     <ClCompile Include="..\platform\win32\CSStdC-win32.cpp">
       <Filter>platform\win32</Filter>
     </ClCompile>
+    <ClCompile Include="..\base\CSEventReceiver.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\surface3d.h" />
@@ -58,6 +61,12 @@
     </ClInclude>
     <ClInclude Include="..\CSLibrary\CSVector.h">
       <Filter>CSLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\CSEventReceiver.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\platform\CSStdC.h">
+      <Filter>platform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

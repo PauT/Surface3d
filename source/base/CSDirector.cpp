@@ -20,6 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include "CSDirector.h"
+#include "base/CSEventReceiver.h"
 #include <irrlicht.h>
 USING_NS_IRR;
 
@@ -74,6 +75,10 @@ bool Director::init()
 	_runningScene = nullptr;
 	_nextScene = nullptr;
 	_scenesStack.reserve(15);
+
+	auto receiver = EventReceiver::getInstance();
+	_gDevice->setEventReceiver(receiver);
+	
 
 	return true;
 }

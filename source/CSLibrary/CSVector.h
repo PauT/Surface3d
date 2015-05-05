@@ -24,6 +24,7 @@ THE SOFTWARE.
 #define __CSVECTOR_H__
 
 #include "platform/CSPlatformMacros.h"
+#include "platform/CSStdC.h"
 #include <irrlicht.h>
 #include <vector>
 #include <functional>
