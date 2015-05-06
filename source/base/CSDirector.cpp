@@ -283,6 +283,22 @@ void Director::setNextScene()
 }
 
 
+bool Director::OnEvent(const SEvent& event)
+{
+	if(event.EventType == EET_KEY_INPUT_EVENT)
+	{
+		switch (event.KeyInput.Key)
+		{
+		case KEY_F2:
+			setDisplayStats(!_displayStats);
+			break;
+		default:
+			break;
+		}
+	}
+	return true;
+}
+
 /***************************************************
 * implementation of DisplayLinkDirector
 **************************************************/

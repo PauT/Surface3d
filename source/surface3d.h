@@ -31,5 +31,6 @@ THE SOFTWARE.
 
 #include "base/CSScene.h"
 #include "base/CSDirector.h"
+#include "base/CSEventReceiver.h"
 
 #endif

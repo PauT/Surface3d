@@ -20,6 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include "CSEventReceiver.h"
+#include "base/CSScene.h"
 NS_CS_BEGIN
 
 // singleton stuff
@@ -53,9 +54,9 @@ void EventReceiver::init()
 
 }
 
-void EventReceiver::registerNewRevicer(EventReceiverDelegate* receiver)
+void EventReceiver::registerNewRevicer(EventReceiverDelegate* reciver)
 {
-	_eventReceiverList.push_back(receiver);
+	_eventReceiverList.push_back(reciver);
 }
 
 bool EventReceiver::OnEvent(const SEvent& event)

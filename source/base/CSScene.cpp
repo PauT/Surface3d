@@ -22,6 +22,11 @@ THE SOFTWARE.
 #include "CSScene.h"
 NS_CS_BEGIN
 
+Scene::Scene(ISceneNode* sceneNode)
+: ISceneNode(sceneNode->getParent(), sceneNode->getSceneManager(), sceneNode->getID())
+{
+
+}
 Scene::~Scene()
 {
 
@@ -31,7 +36,7 @@ Scene::~Scene()
 Scene* Scene::create(ISceneManager* mgr)
 {
 	ISceneNode *tScene = mgr->addEmptySceneNode(0);
-	Scene *pRet = (Scene *)tScene;
+	Scene *pRet = new Scene(tScene);
 	if(pRet && pRet->init())
 	{
 		return pRet;
@@ -53,6 +58,12 @@ void Scene::render()
 const core::aabbox3d<f32>& Scene::getBoundingBox() const
 {
 	return core::aabbox3d<f32>(-5,0,-5,5,1,5);
+}
+
+
+bool Scene::OnEvent(const SEvent& event)
+{
+	return true;
 }
 
 
