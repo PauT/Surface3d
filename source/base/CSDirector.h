@@ -41,7 +41,8 @@ USING_NS_IRR;
 
 
 NS_CS_BEGIN
-class CS_DLL Director : public IReferenceCounted
+class CS_DLL Director : public IReferenceCounted, 
+	public EventReceiverDelegate
 {
 public:
 	Director(void);
@@ -125,6 +126,8 @@ public:
      */
     void replaceScene(Scene *scene);
 
+
+	virtual bool OnEvent(const SEvent& event);
 protected:
 	/* purge data */
 	void purgeDirector();
